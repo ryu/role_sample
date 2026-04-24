@@ -1,9 +1,21 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# ユーザー作成
+alice = User.find_or_create_by!(id: 1)
+bob   = User.find_or_create_by!(id: 2)
+
+# ロール作成
+developer_role       = Role.find_or_create_by!(name: :developer, resource_type: nil, resource_id: nil)
+admin_role           = Role.find_or_create_by!(name: :admin,     resource_type: nil, resource_id: nil)
+campaign_manager_role = Role.find_or_create_by!(name: :manager,  resource_type: "Campaign", resource_id: nil)
+customer1_member_role = Role.find_or_create_by!(name: :member,   resource_type: "Customer", resource_id: 1)
+customer1_manager_role = Role.find_or_create_by!(name: :manager, resource_type: "Customer", resource_id: 1)
+
+# alice: developer + Campaign manager
+alice.roles << developer_role       unless alice.roles.include?(developer_role)
+alice.roles << campaign_manager_role unless alice.roles.include?(campaign_manager_role)
+
+# bob: Customer id=1 の member
+bob.roles << customer1_member_role unless bob.roles.include?(customer1_member_role)
+
+# Campaign / Customer 作成
+campaign1 = Campaign.find_or_create_by!(id: 1, name: "Campaign A")
+customer1  = Customer.find_or_create_by!(id: 1, name: "Customer A")
