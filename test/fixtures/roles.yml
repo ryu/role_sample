@@ -1,0 +1,14 @@
+global_developer:
+  name: developer
+  resource_type:
+  resource_id:
+
+global_admin:
+  name: admin
+  resource_type:
+  resource_id:
+
+customer1_member:
+  name: member
+  resource_type: Customer
+  resource_id: 1

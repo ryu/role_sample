@@ -5,6 +5,9 @@ class Role < ApplicationRecord
   has_many :user_roles, dependent: :destroy
   has_many :users, through: :user_roles
 
+  validates :name, presence: true
+  validates :name, uniqueness: { scope: [ :resource_type, :resource_id ] }
+
   scope :global, -> { where(resource_type: nil, resource_id: nil) }
   scope :for_class, ->(resource_class) { where(resource_type: resource_class, resource_id: nil) }
   scope :for_instance, ->(resource_instance) { where(resource: resource_instance) }

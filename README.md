@@ -33,6 +33,7 @@ bin/rails console
 ```ruby
 alice = User.find(1)
 alice.developer?          # => true
+alice.admin?              # => true
 alice.campaign_manager?   # => true
 
 bob = User.find(2)
