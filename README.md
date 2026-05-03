@@ -51,7 +51,7 @@ bin/ci           # CI全工程
 
 ## 技術スタック
 
-- Ruby 4.0.2 / Rails 8.1
+- Ruby 4.0.3 / Rails 8.1
 - SQLite3
 - Hotwire（Turbo + Stimulus）
 - Solid Queue / Solid Cache / Solid Cable

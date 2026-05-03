@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 技術スタック
 
-- Ruby 4.0.2 / Rails 8.1
+- Ruby 4.0.3 / Rails 8.1
 - SQLite3（開発・テスト）
 - Hotwire（Turbo + Stimulus）、Propshaft、importmap-rails
 - Solid Queue（バックグラウンドジョブ）、Solid Cache、Solid Cable
